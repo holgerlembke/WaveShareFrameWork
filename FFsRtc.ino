@@ -19,17 +19,13 @@ void setupFileSystem() {
 // https://github.com/espressif/esp-idf/issues/892
 void tryMountSDcard(void *parameter) {
   UBaseType_t lastwm = 50000;
-  uint8_t *buffer = NULL;
-  uint32_t secSize = 0;
 
 // call sdmmc_card_init?
 // https://github.com/espressif/esp-idf/blob/master/examples/storage/sd_card/sdmmc/main/sd_card_example_main.c#L102
 
   do {
     if (SDCardAvailable) {
-      if (!SD_MMC.readRAW(buffer, 0)) {
-        free(buffer);
-        buffer = NULL;
+      if (!SD_MMC.exists("/")) {
         SDCardAvailable = false;
         SD_MMC.end();
       }
@@ -45,11 +41,6 @@ void tryMountSDcard(void *parameter) {
         SDCardAvailable = false;
       } else {
         SDCardAvailable = true;
-      }
-
-      if (SDCardAvailable) {
-        secSize = SD_MMC.sectorSize();
-        buffer = static_cast<uint8_t *>(malloc(secSize));
       }
     }
 

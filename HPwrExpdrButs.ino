@@ -53,8 +53,6 @@ void setupPower() {
 
 //***********************************************************************************************
 inline void loopPower() {
-  return;
-
   /*
   int backlight_ctrl = expander->digitalRead(4);
 

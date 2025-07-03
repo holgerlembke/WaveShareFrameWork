@@ -2,6 +2,7 @@
       Waveshare Remote
 
       Hardware: https://www.waveshare.com/wiki/ESP32-S3-Touch-AMOLED-1.8#Screen_Description
+      Examples: https://www.waveshare.com/wiki/ESP32-S3-Touch-AMOLED-1.8#Resources
 
         usb cdc on boot: enabled
         flash size: 16 mb
