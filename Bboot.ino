@@ -73,10 +73,6 @@ void bootinfo(void) {  // esp32
   Serial.print(F(" B, Max allocatable Psram Size: "));
   Serial.println(ESP.getMaxAllocPsram());
 
-  Serial.print(F("Sketch Size: "));
-  Serial.print(ESP.getSketchSize());
-  Serial.println(F(" B"));
-
   uint64_t chipid = ESP.getEfuseMac();  //The chip ID is essentially its MAC address(length: 6 bytes).
   Serial.print(F("ESP32 Chip ID = "));
   Serial.printf("%04X", (uint16_t)(chipid >> 32));  //print High 2 bytes
